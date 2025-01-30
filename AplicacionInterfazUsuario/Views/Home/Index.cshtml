@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts{
+    <script>
+
+        var preguntas = "";
+        preguntas += "¿Qué es un delegado (delegate) en .NET? Es una referencia a una función<br>";
+        preguntas += "¿Qué es LINQ y cómo se utiliza en .NET? Es una herramienta que nos permite realizar consultas sobre diferentes fuentes de datos ya sea con metodos como con sintaxis tipo sql sobre diferentes sets de datos<br>";
+        preguntas += "¿Qué es el patrón de diseño Singleton y nombre 3 patrones mas? Singleton nos asegura la existencia de 1 sola instancia de una clase, adapter, proxy y observer son otros patrones más<br>";
+        preguntas += "¿Cuales son los Principios SOLID? En POO, solid S responsabilidad única de una clase, O clase abierta a extensión pero no a modificación, L principio de liskof(falto), I segregación de interfaces en multiples, D dependency inversion, básicamente en vez de crear un objeto dentro de una clase se crea afuera y se inserta por ejemplo por constructor<br>";
+        preguntas += "¿Existe la herencia multiple en .Net? si dice si escriba su sintaxis, si dice no proponga un work around. => NO existe, pero se puede utilizar multiples interfaces para simular el comportamiento<br>";
+
+        $(document).ready(function () {
+            $("#modalPreguntas").modal();
+
+            $("#modalBody").html(preguntas);
+            $("#divPreguntas").html(preguntas);
+
+            $("#redirigir").click(function () {
+                window.open('/home/Preguntas', "_blank");
+            });
+
+            localStorage.setItem("preguntas", preguntas);
+        });
+
+
+    </script>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Preguntas</h2>
+        <div id="divPreguntas"></div>
+    </div>
+    <div class="col-md-4">
+        <button type="button" id="redirigir" class="btn btn-success">Ir a preguntas como redirect</button>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPreguntas" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Preguntas</h4>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

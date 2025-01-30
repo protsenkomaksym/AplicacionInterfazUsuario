@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            if (localStorage.getItem("preguntas") != null) {
+                $("#divPreguntas").html(localStorage.getItem("preguntas"));
+            }
+        });
+
+    </script>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Preguntas</h2>
+        <div id="divPreguntas"></div>
+    </div>
+</div>
